@@ -1,0 +1,15 @@
+// 1. Firts, create a source in localhost
+	New-EventLog -LogName 'Application' -Source 'SourceApp'
+	
+	NOTA: Hay varios tipos de eventos como es Application, Security, System, Setup, Forwarded Events.
+		Pero es recomendable que las aplicaciones y los usuarios específicos registren en Application
+		ya que las demás categorias están reservadas para usos especiales, se pueden usar pero no
+		se debería
+
+// 2. Reg event in source
+	Write-EventLog -LogName 'Application' -Source 'SourceApp' -EventId 100 -EntryType Information -	Message '{message}' -Category 0
+
+	-EventId: Reservado para identificar el tipo de información en la documentación
+	-EntryType: Information, Warning, Error, successAudit, FailureAudit
+	-Message: Message description when you open the event
+	-Category: 1 is for default, 0 is None.

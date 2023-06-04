@@ -1,0 +1,8 @@
+// 1. Create a file/folder/etc
+	New-Item -ItemType Directory -Force -Path ""
+
+	-Path: Ruta de creación
+	-ItemType: File (archivo), Directory (carpeta), RegistryKey (clave de registro), Variable (variable 			de entorno), 
+	-Name: Este es opcional ya que se puede incluir en -Path. Indica el nombre de la creación
+	-Value: Es solo para variables de entornos indicadas en -ItemType. Indica el valor de la variable
+	-Force: Crea el elemento incluso si está creado

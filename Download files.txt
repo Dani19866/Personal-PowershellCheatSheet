@@ -1,0 +1,9 @@
+// 1. Petición a una URL y recibir la respuesta
+	Invoke-WebRequest -Uri "" -OutFile ""
+
+	-Uri: URL del archivo que se va a descargar
+	-OutFile: Path donde se va a guardar el archivo, se especifica el path con el nombre y extensión 		    del archivo
+	-Method: GET, POST, PUT, DELETE, HEAD, OPTIONS, PATCH. Por defecto está en GET
+	-Headers: @{"User-Agent" = "Mozilla/5.0"}
+	-Body: Para enviar datos por POST. "nombre=daniel&apellido=deoliveira"
+	-Credential: Credenciales básicas para la autentificación básica de HTTP. -Credential (New-Object 			 System.Management.Automation.PSCredential("nombreusuario", (ConvertTo-SecureString 			 "contraseña" -AsPlainText -Force)))

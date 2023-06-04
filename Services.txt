@@ -1,0 +1,63 @@
+// 1. Información
+	Get-Service
+
+	-Name: <nombre del servicio>
+	Ver estado de un servicio: | Select-Object Status
+---------------------------------------------------------------------------------------
+// 2. Iniciar un servicio
+	Start-Service
+	
+	-Name: <nombre del servicio>
+	-Force: Iniciar el servicio si su tipo de inicio no es "Automatico"
+---------------------------------------------------------------------------------------
+// 3. Parar servicio
+	Stop-Service 
+
+	-Name: <nombre del servicio>
+	-Force: Detener el servicio incluso si está en un estado de espera o se ha 			  producido un error
+---------------------------------------------------------------------------------------
+// 4. Pausar un servicio
+	Suspend-Service 
+
+	-Name: <nombre del servicio>
+---------------------------------------------------------------------------------------
+// 5. Reanudar un servicio pausado
+	Resume-Service 
+
+	-Name: <nombre del servicio>
+---------------------------------------------------------------------------------------
+// 6. Reiniciar un servicio
+	Restart-Service 
+
+	-Name: <nombre del servicio>
+	-Force: Reinicia incluso si es Automatico
+---------------------------------------------------------------------------------------
+// 7. Cambiar configuraciónde inicio
+	Set-Service 
+	
+	-Name: <nombre del servicio> 
+	-StartupType <tipo de inicio>
+	-DisplayName: Nombre para mostrar en vez del nombre real
+	-Status: Configurar estados, como por ejemplo...
+		Boot: Iniciar en el proceso de arranque
+		System: Iniciar automaticamente en el arranque del OS
+		Automatic: Se iniciar automaticamente cuando se inicar el OS
+		Manual: Inica manualmente
+		Disabled: El servicio no puede iniciarse
+---------------------------------------------------------------------------------------
+// 8. Detener y eliminar un servicio
+	Stop-Service para parar el servicio
+	Remove-Service para eliminar el servicio
+
+	Stop-Service -Name <nombre del servicio> | Remove-Service
+---------------------------------------------------------------------------------------
+// 9. Instalar un servicio
+	New-Service
+	
+	-Name: Nombre del servicio
+	-DisplayName: Nombre que se mostrará en en "Administrador de servicios"
+	-Description: Descripción del servicio
+	-StartupType: Boot, System, Automatic, Manuel, Disabled
+	-Credential: Es SOLO necesaria si el servicio se ejecuta con una cuenta de 				 usuario diferente, este valor de ese una instancia de PSCredential
+	-DependsOn: Indica dependencia de otros servicios (-DependsOn 						"MyOtherService","MyThirdService")
+	-binaryPathName: Especifica ruta del archivo ejecutable (C:/...../file.exe)
